@@ -97,7 +97,8 @@ class CollectionType extends ParentType
         }
 
         foreach ($data as $key => $val) {
-            $this->children[] = $this->setupChild(clone $field, '['.$key.']', $val);
+            $field = new $fieldType($this->name, $type, $this->parent, $this->getOption('options'));
+            $this->children[] = $this->setupChild($field, '['.$key.']', $val);
         }
     }
 
